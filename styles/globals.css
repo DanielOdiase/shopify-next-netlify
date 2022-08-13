@@ -440,17 +440,19 @@ main {
 
 .product-card-frame {
   height: 195px;
+  text-align:center;
   margin-bottom: 0.5rem;
   display: flex;
   align-content: center;
   align-items: center;
   box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  background-color: white;
   overflow: hidden;
  
 }
 .product-card-frame img {
     width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
   
 }
