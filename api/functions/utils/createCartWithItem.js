@@ -42,7 +42,14 @@ exports.createCartWithItem = async ({ itemId, quantity }) => {
                   amount
                   currencyCode
                 }
-               
+                totalTaxAmount {
+                  amount
+                  currencyCode
+                }
+                totalDutyAmount {
+                  amount
+                  currencyCode
+                }
               }
             }
           }

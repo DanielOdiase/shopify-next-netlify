@@ -46,7 +46,7 @@ export default function Cart() {
           <CartTotal cost={cost} />
           
           {cartId && (
-          <form action= {`${process.env.NETLIFY_URL}/functions/create-checkout`} method="POST">
+          <form action= "/.netlify/functions/create-checkout" method="POST">
             <input type="hidden" name="cartId" value={cartId} />
             <div className="checkoutBtn">
             <button className="checkBtn">Check Out</button>
