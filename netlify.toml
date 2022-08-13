@@ -1,7 +1,7 @@
 [[plugins]]
   package = "@algolia/netlify-plugin-crawler"
   [plugins.inputs]
-  branches = ['main', 'develop']
+  
   
 
 [functions]
