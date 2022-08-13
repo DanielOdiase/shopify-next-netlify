@@ -1,8 +1,13 @@
 import { formatPrice, itemTotal } from "../utilityFunctions";
-
+import { useAppContext } from "../state";
+import {useEffect } from "react";
 export default function CartTable({ cartItems, cartId, removeItem }) {
+  const{cartNum,setCartNum}=useAppContext()
+  
+  
   let removeItemFromCart = (itemId) => {
-    fetch("/.netlify/functions/remove-from-cart", {
+    {cartItems!=0?setCartNum(0):setCartNum(cartNum-1)}
+    fetch(`${process.env.NETLIFY_URL}/.netlify/functions/remove-from-cart`, {
       method: "POST",
       body: JSON.stringify({
         cartId: cartId,
@@ -18,6 +23,8 @@ export default function CartTable({ cartItems, cartId, removeItem }) {
       });
   };
 
+  
+ console.log(cartItems.length)
   return (
     <table className="cart-table">
       <thead>
@@ -32,7 +39,6 @@ export default function CartTable({ cartItems, cartId, removeItem }) {
       <tbody>
         {cartItems.map((item, index) => {
           item = item.node;
-
           let merchandiseTitle =
             item.merchandise.title === "Default Title"
               ? ""
