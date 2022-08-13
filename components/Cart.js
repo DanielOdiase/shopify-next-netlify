@@ -8,6 +8,8 @@ export default function Cart() {
   const [products, setProducts] = useState([]);
   const [cost, setCost] = useState({});
   const { cartId, setCartId } = useAppContext();
+  const {cartValue} = useAppContext()
+  
 
   useEffect(async () => {
     const localCart = cartId;
@@ -16,7 +18,7 @@ export default function Cart() {
       setShowProducts(false);
     } else {
       setCartId(localCart);
-      const response = await fetch("/.netlify/functions/get-cart", {
+      const response = await fetch( `/.netlify/functions/get-cart`, {
         method: "post",
         body: JSON.stringify({
           cartId: localCart,
@@ -26,9 +28,11 @@ export default function Cart() {
       const json = await response.json();
       setProducts(json?.cart?.lines.edges);
       setCost(json?.cart?.estimatedCost);
+      
       return json;
     }
   }, []);
+
 
   return (
     <div>
@@ -40,6 +44,16 @@ export default function Cart() {
             removeItem={setProducts}
           />
           <CartTotal cost={cost} />
+          
+          {cartId && (
+          <form action= "/.netlify/functions/create-checkout" method="POST">
+            <input type="hidden" name="cartId" value={cartId} />
+            <div className="checkoutBtn">
+            <button className="checkBtn">Check Out</button>
+            </div>
+          </form>
+        )}
+
         </div>
       ) : (
         <div className="cart-page-message">

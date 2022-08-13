@@ -8,15 +8,20 @@ export default function Home({ products }) {
   return (
     <>
       <Head>
-        <title>Cheese and Meat Shop</title>
+        <title>Fitness {'&'} Exercise Equipment for Your Facility or Home | Life Fitness</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header />
+      <div className='img-container'><img className="banner-img" src='https://static.gymequipment.co.uk/pub/media/wysiwyg/gd/img_gd-unigym-1524x646-compressor.jpg'/></div>
       <main>
+        <div className="mid-text-cont">
+        <h2 className="mid-text">TOP SELLERS. SOMETHING FOR EVERYONE.</h2>
+        <p className="small-text">Explore our Top Sellers in Equipments.</p>
+        </div>
         <ul className="product-grid">
           {products.map((p, index) => {
-            return <ProductListing key={`product${index}`} product={p.node} />;
+            return <ProductListing key={`/product${index}`} product={p.node} />;
           })}
         </ul>
       </main>

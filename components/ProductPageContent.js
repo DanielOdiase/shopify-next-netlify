@@ -45,7 +45,7 @@ function VariantForm({ vars, current, pick, setQ }) {
   );
 }
 
-export default function ProductPageContent({ product }) {
+export default function ProductPageContent({ product,cartItems }) {
   let vars = product.variants.edges;
 
   // Chosen variant ID
@@ -54,40 +54,43 @@ export default function ProductPageContent({ product }) {
   const [quantity, setQuantity] = useState(1);
   // Cost of the chosen variant
   const [cost, setCost] = useState("");
-
+  const [numState, setNumState] = useState([])
   const { cartId, setCartId } = useAppContext();
-
+  const { cartValue, setCartValue}=useAppContext();
+  const{cartNum,setCartNum}=useAppContext()
   useEffect(() => {
     let variantPrice = getCurrentVariantObject(vars, chosenVariant).node.priceV2
       .amount;
 
     setCost(formatPrice(variantPrice * quantity));
+    
   }, [chosenVariant, quantity, cost]);
 
   let image = product.images.edges[0].node;
 
   let handleAddToCart = async () => {
     console.log("--- Adding to cart ---");
-
     const body = {
       cartId: cartId || "",
       itemId: chosenVariant,
       quantity: quantity,
     };
-
-    const cartResponse = await fetch("/.netlify/functions/add-to-cart", {
+   
+    const cartResponse = await fetch(`/.netlify/functions/add-to-cart`, {
       method: "post",
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" },
     });
-
+  
+    setCartNum(cartNum+1)
     const data = await cartResponse.json();
     setCartId(data.id);
-
     return data;
   };
+  
 
-  return (
+  
+return (
     <section className="product-page-content">
       <div>
         <img
@@ -97,7 +100,7 @@ export default function ProductPageContent({ product }) {
         />
       </div>
       <div className="product-copy">
-        <h1>{product.title}</h1>
+        <h1 className="listing-title">{product.title}</h1>
         <h2>{cost}</h2>
         <p>{product.description}</p>
 
@@ -109,7 +112,8 @@ export default function ProductPageContent({ product }) {
         />
 
         {product.totalInventory > 0 ? (
-          <button onClick={handleAddToCart}>Add to Cart</button>
+          <div className="addCart-btn">
+          <button className="addBtn" onClick={handleAddToCart}>Add to Cart</button></div>
         ) : (
           <button className="disabled" disabled>
             Out of Stock

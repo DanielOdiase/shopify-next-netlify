@@ -1,13 +1,21 @@
 export default function Footer() {
+  const{ALGOLIA_API_KEY}=process.env;
+  const body={
+    appId: 'H4B4JE3EG9',
+    apiKey: '<ALGOLIA_API_KEY>',
+    siteId: 'f7337d54-e3e5-4024-8410-4061f051395b',
+    branch: 'deploy',
+    selector: 'div#search',
+  }
+ 
   return (
     <>
       <footer>
         <section className="testimonial">
           <h2>
-            "The interplay of flavors between the cheese, meats and fruits is an
-            absolute delight."
+            "Pain is temporary,Pride is forever."
           </h2>
-          <p>Paul Hotcakes</p>
+          <p>"Not sure"</p>
         </section>
         <section className="app-footer-links">
           <ul>
