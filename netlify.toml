@@ -3,9 +3,3 @@
 
 [functions]
   directory = "api/functions/"
-[dev]
-  command = "npm run dev"
-  framework = "#custom"
-  port = 8888
-  targetPort = 3000
-  autoLaunch = true

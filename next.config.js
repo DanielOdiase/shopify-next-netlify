@@ -6,11 +6,5 @@ module.exports = {
       // !! WARN !!
       ignoreBuildErrors: true,
     },
-      env: {
-        NETLIFY_URL:
-          process.env.NODE_ENV !== 'production'
-            ? 'http://localhost:8888'
-            : 'https://lifefitnessdemo.netlify.app',
-      },
-   
+      
   }
