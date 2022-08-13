@@ -7,7 +7,7 @@ export default function CartTable({ cartItems, cartId, removeItem }) {
   
   let removeItemFromCart = (itemId) => {
     {cartItems!=0?setCartNum(0):setCartNum(cartNum-1)}
-    fetch(`${process.env.NETLIFY_URL}/.netlify/functions/remove-from-cart`, {
+    fetch(`/.netlify/functions/remove-from-cart`, {
       method: "POST",
       body: JSON.stringify({
         cartId: cartId,

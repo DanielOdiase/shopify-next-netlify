@@ -18,7 +18,7 @@ export default function Cart() {
       setShowProducts(false);
     } else {
       setCartId(localCart);
-      const response = await fetch( `${process.env.NETLIFY_URL}/.netlify/functions/get-cart`, {
+      const response = await fetch( `/.netlify/functions/get-cart`, {
         method: "post",
         body: JSON.stringify({
           cartId: localCart,
@@ -46,7 +46,7 @@ export default function Cart() {
           <CartTotal cost={cost} />
           
           {cartId && (
-          <form action= {`${process.env.NETLIFY_URL}/.netlify/functions/create-checkout`} method="POST">
+          <form action= {`${process.env.NETLIFY_URL}/functions/create-checkout`} method="POST">
             <input type="hidden" name="cartId" value={cartId} />
             <div className="checkoutBtn">
             <button className="checkBtn">Check Out</button>

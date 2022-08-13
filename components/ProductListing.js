@@ -14,7 +14,7 @@ export default function ProductListing({ product }) {
           {product.description.substring(0, 60)}...
         </p>
       </div>
-      <Link href={`${process.env.NETLIFY_URL}/product/${product.handle}`}>
+      <Link href={`/product/${product.handle}`}>
         <a className='btn'>
           <button className='view-btn'>View Item {`>`} </button>
         </a>

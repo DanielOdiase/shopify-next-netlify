@@ -76,7 +76,7 @@ export default function ProductPageContent({ product,cartItems }) {
       quantity: quantity,
     };
    
-    const cartResponse = await fetch(`${process.env.NETLIFY_URL}/.netlify/functions/add-to-cart`, {
+    const cartResponse = await fetch(`/.netlify/functions/add-to-cart`, {
       method: "post",
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" },
