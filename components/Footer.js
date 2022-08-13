@@ -1,6 +1,13 @@
 export default function Footer() {
   
- 
+  algoliasearchNetlify({
+    appId: '85VKJPBHG0',
+    apiKey: 'a135a148301c7f5251df549bef689db7',
+    siteId: 'f7337d54-e3e5-4024-8410-4061f051395b',
+    branch: 'main',
+    selector: 'div#search',
+  });
+
   return (
     <>
       <footer>
