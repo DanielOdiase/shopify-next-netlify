@@ -1,8 +1,6 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   
-  [plugins.inputs]
-  branches=['main','Develop']
 
 [functions]
   directory = "api/functions/"
