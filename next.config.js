@@ -6,5 +6,9 @@ module.exports = {
       // !! WARN !!
       ignoreBuildErrors: true,
     },
-      
+      script:[{
+        src:'https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js',
+      }   
+      ]
   }
+  
