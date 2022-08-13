@@ -33,7 +33,7 @@ exports.createCartWithItem = async ({ itemId, quantity }) => {
                   }
                 }
               }
-              estimatedCost {
+              cost{
                 totalAmount {
                   amount
                   currencyCode
@@ -42,14 +42,7 @@ exports.createCartWithItem = async ({ itemId, quantity }) => {
                   amount
                   currencyCode
                 }
-                totalTaxAmount {
-                  amount
-                  currencyCode
-                }
-                totalDutyAmount {
-                  amount
-                  currencyCode
-                }
+               
               }
             }
           }
