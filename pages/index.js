@@ -15,6 +15,7 @@ export default function Home({ products }) {
       <Header />
       <div className='img-container'><img className="banner-img" src='https://static.gymequipment.co.uk/pub/media/wysiwyg/gd/img_gd-unigym-1524x646-compressor.jpg'/></div>
       <main>
+      <div id = "search"  style={{backgroundColor:"red" ,marginTop:'30px'}}></div>
         <div className="mid-text-cont">
         <h2 className="mid-text">TOP SELLERS. SOMETHING FOR EVERYONE.</h2>
         <p className="small-text">Explore our Top Sellers in Equipments.</p>
