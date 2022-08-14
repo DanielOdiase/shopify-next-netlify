@@ -9,6 +9,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@algolia/algoliasearch-netlify-frontend": "^1.0.15",
     "algoliasearch": "^4.14.2",
     "next": "^11.1.4",
     "query-string": "^7.1.1",
