@@ -20,10 +20,7 @@ export default function Home({ products }) {
         <h2 className="mid-text">TOP SELLERS. SOMETHING FOR EVERYONE.</h2>
         <p className="small-text">Explore our Top Sellers in Equipments.</p>
         </div>
-        <div id ="search" style={{backgroundColor:"red" ,marginTop:'100px'}}></div>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
-
+  
         <ul className="product-grid">
           {products.map((p, index) => {
             return <ProductListing key={`/product${index}`} product={p.node} />;
