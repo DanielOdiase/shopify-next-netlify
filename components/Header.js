@@ -21,9 +21,8 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <div id ="search" style={{backgroundColor:"red" ,marginTop:'100px'}}></div>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+      <div id="search" ></div>
+     
     </header>
   );
 }
